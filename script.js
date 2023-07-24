@@ -1,3 +1,3 @@
 "use strict";
 
-document.addEventListener("load", alert("Loaded"));
+// document.addEventListener("load", alert("Loaded"));
