@@ -29,7 +29,7 @@
   --color-on-secondary: var(--color-black--dark);
 
   --color-main-background: var(--color-white-d--3);
-  --color-surface-background: var(--color-white-d--2);
+  --color-surface-background: var(--color-white-d--1);
   --color-shadow: #8b8b8b;
   --dialog-overlay: var(--color-shadow);
 }
