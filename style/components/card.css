@@ -3,6 +3,7 @@
   height: 38rem;
   background-color: var(--color-surface-background);
   border-radius: 1rem;
+  box-shadow: 0 0.35rem 0.5rem var(--color-shadow);
 }
 
 .card__flag {
@@ -11,5 +12,5 @@
 }
 
 .card__details {
-  padding: 0 1.6rem;
+  padding: 1rem 1.6rem;
 }
