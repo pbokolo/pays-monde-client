@@ -14,3 +14,17 @@
 .card__details {
   padding: 1rem 1.6rem;
 }
+
+.card__details p {
+  padding: 1rem 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.card__details p:hover {
+  background-color: var(--color-main-background);
+}
+
+.card__details p:not(:last-child) {
+  border-bottom: 0.1rem solid var(--color-main-background);
+}
