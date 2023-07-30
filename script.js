@@ -10,13 +10,12 @@ const getData = async (country) => {
     const data = await response.json();
     renderCountry(data);
   } catch (error) {
-    console.log(error);
+    alert(`Non trouvé: ${country}`);
   }
 };
 
 const renderCountry = (data) => {
   const [country] = data;
-  console.log(country);
   const element = `<div class="card">
   <div class="card__flag">
   <img class="card__flag-picture" src=${country.flags.png} alt=${country.name.common}/>
