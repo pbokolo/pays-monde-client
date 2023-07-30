@@ -1,0 +1,14 @@
+.btn {
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 3rem;
+  background-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.btn--location {
+  position: fixed;
+  bottom: 6rem;
+  left: 50%;
+  transform: translate(-50%, -0.5rem);
+}
