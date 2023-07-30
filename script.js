@@ -6,10 +6,12 @@ const queryTxt = document.getElementById("query-txt");
 
 const getData = async (country) => {
   try {
+    renderSpinner();
     const response = await fetch(`${API}/${country}`);
     const data = await response.json();
     renderCountry(data);
   } catch (error) {
+    clearSection();
     alert(`Non trouvé: ${country}`);
   }
 };
@@ -29,6 +31,16 @@ const renderCountry = (data) => {
   </div>
 </div>`;
   section.innerHTML = element;
+};
+
+const renderSpinner = () => {
+  const spinner = `<img class="spinner" src="./assets/spinner.svg" />`;
+  section.innerHTML = spinner;
+};
+
+const clearSection = () => {
+  const cta = `<p class="text">Commencez par chercher un pays</p>`;
+  section.innerHTML = cta;
 };
 
 const init = () => {
