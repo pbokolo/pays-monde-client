@@ -4,11 +4,19 @@
   background-color: var(--color-surface-background);
   border-radius: 1rem;
   box-shadow: 0 0.35rem 0.5rem var(--color-shadow);
+  overflow: hidden;
 }
 
 .card__flag {
   height: 20rem;
   background-color: bisque;
+  overflow: inherit;
+}
+
+.card__flag-picture {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 }
 
 .card__details {

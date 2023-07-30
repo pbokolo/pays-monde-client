@@ -1,5 +1,6 @@
 "use strict";
 const API = "https://restcountries.com/v3.1/name";
+const section = document.getElementById("section");
 const formSearch = document.getElementById("form-search");
 const queryTxt = document.getElementById("query-txt");
 
@@ -7,10 +8,28 @@ const getData = async (country) => {
   try {
     const response = await fetch(`${API}/${country}`);
     const data = await response.json();
-    console.log(data);
+    renderCountry(data);
   } catch (error) {
     console.log(error);
   }
+};
+
+const renderCountry = (data) => {
+  const [country] = data;
+  console.log(country);
+  const element = `<div class="card">
+  <div class="card__flag">
+  <img class="card__flag-picture" src=${country.flags.png} alt=${country.name.common}/>
+  </div>
+  <div class="card__details">
+    <p class="text text--title">${country.name.common}</p>
+    <p class="text text--body">${country.capital[0]}</p>
+    <p class="text text--body">${country.region}</p>
+    <p class="text text--body">Currency</p>
+    <p class="text text--body">${country.population}</p>
+  </div>
+</div>`;
+  section.innerHTML = element;
 };
 
 const init = () => {
