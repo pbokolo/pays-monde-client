@@ -1,14 +1,18 @@
 "use strict";
-const API = "https://restcountries.com/v3.1/name/usa";
+const API = "https://restcountries.com/v3.1/name";
 
-const getData = () => {
-  fetch(API)
-    .then((res) => console.log(res))
-    .catch((error) => console.log(error));
+const getData = async (country) => {
+  try {
+    const response = await fetch(`${API}/${country}`);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-const init = () => {
-  getData();
+const init = async () => {
+  getData("usa");
 };
 
 init();
