@@ -29,9 +29,6 @@ const renderCountry = (data) => {
     <p class="text text--body">${country.region}</p>
     <p class="text text--body">Currency</p>
     <p class="text text--body">${country.population}</p>
-    <span class="material-symbols-outlined">
-      south_america
-    </span>
   </div>
 </div>`;
   section.innerHTML = element;

@@ -11,3 +11,17 @@ body {
   font-size: 1.8rem;
   font-weight: 500;
 }
+
+.text--owner {
+  display: inline-block;
+  font-weight: 800;
+  clip-path: polygon(5% 0, 100% 0%, 95% 100%, 0% 100%);
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-secondary),
+    var(--color-secondary--dark)
+  );
+  cursor: pointer;
+
+  padding: 0.5rem 1rem;
+}
