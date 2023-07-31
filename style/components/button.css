@@ -1,14 +1,40 @@
 .btn {
   border: none;
   padding: 1rem 3rem;
-  border-radius: 3rem;
+
   background-color: var(--color-primary);
   cursor: pointer;
 }
 
 .btn--location {
   position: fixed;
-  bottom: 7rem;
+  bottom: 5.5rem;
   left: 50%;
   transform: translate(-50%, -0.5rem);
+  padding: 0;
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.btn--location::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+
+  z-index: -1;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  to {
+    scale: 1.5;
+    opacity: 0;
+  }
 }
