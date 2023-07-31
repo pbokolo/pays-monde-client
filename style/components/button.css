@@ -13,6 +13,7 @@
   transform: translate(-50%, -0.5rem);
   padding: 0;
   display: inline-block;
+  text-align: center;
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
@@ -27,9 +28,12 @@
   left: 0;
   background-color: var(--color-primary);
   border-radius: 50%;
-
   z-index: -1;
   animation: pulse 1.5s infinite ease-in-out;
+}
+
+.material-icons {
+  color: var(--color-white);
 }
 
 @keyframes pulse {
