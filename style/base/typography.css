@@ -18,10 +18,10 @@ body {
   clip-path: polygon(5% 0, 100% 0%, 95% 100%, 0% 100%);
   background-image: linear-gradient(
     to right bottom,
-    var(--color-secondary),
-    var(--color-secondary--dark)
+    var(--color-black--light),
+    var(--color-black)
   );
   cursor: pointer;
-
   padding: 0.5rem 1rem;
+  box-shadow: 0 1rem 1rem var(--color-shadow);
 }
