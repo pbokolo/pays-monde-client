@@ -1,6 +1,7 @@
 "use strict";
-const API = "https://restcountries.com/v3.1/name";
+const API = "https://restcountries.com/v3.1";
 const GEO_API = "https://api.opencagedata.com/geocode/v1/json?";
+const GEOCODE_API_KEY = "bb70044ca1b443318d7d3e9b172a8766";
 const section = document.getElementById("section");
 const formSearch = document.getElementById("form-search");
 const queryTxt = document.getElementById("query-txt");
@@ -9,7 +10,7 @@ const locationBtn = document.querySelector("#btn-loc");
 const getData = async (country) => {
   try {
     renderSpinner();
-    const response = await fetch(`${API}/${country}`);
+    const response = await fetch(`${API}/name/${country}`);
     const data = await response.json();
     renderCountry(data);
   } catch (error) {
@@ -18,11 +19,14 @@ const getData = async (country) => {
   }
 };
 
-async function fetchByCode(code) {
-  const result = await axios.get(`${API}/alpha/${code}`);
-  if (!result) throw new Error(`Country ${code} not found`);
-  const [data] = result.data;
-  return data;
+async function fetchByLocation(coords) {
+  const { latitude, longitude } = coords;
+  const response = await fetch(
+    `${GEO_API}q=${latitude}+${longitude}&key=${GEOCODE_API_KEY}`
+  );
+  const data = await response.json();
+  const { country } = data.results[0].components;
+  getData(country);
 }
 
 const renderCountry = (data) => {
@@ -82,18 +86,6 @@ function formatCompactNumber(number) {
   } else if (number >= 1_000_000_000_000 && number < 1_000_000_000_000_000) {
     return (number / 1_000_000_000_000).toFixed(1) + "T";
   }
-}
-
-async function fetchByLocation(coords) {
-  const { latitude, longitude } = coords;
-
-  console.log(latitude, longitude);
-
-  /* const result = await axios.get(
-    `${GEO_API}q=${latitude}+${longitude}&key=${GEOCODE_API_KEY}`
-  );
-  const { country_code } = result.data.results[0].components;
-  const country = await this.fetchByCode(country_code); */
 }
 
 const init = () => {
