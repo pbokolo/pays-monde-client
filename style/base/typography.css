@@ -8,21 +8,31 @@ body {
   font-weight: 300;
 }
 
+.text--body {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
 .text--title {
   font-size: 1.8rem;
   font-weight: 500;
 }
 
+.text--copyright {
+  font-size: 1rem;
+}
+
 .text--owner {
   display: inline-block;
-  font-weight: 800;
+  font-size: 1.1rem;
+  font-weight: 700;
   clip-path: polygon(5% 0, 100% 0%, 95% 100%, 0% 100%);
   background-image: linear-gradient(
     to right bottom,
-    var(--color-black--light),
-    var(--color-black)
+    var(--color-black),
+    var(--color-black--dark)
   );
   cursor: pointer;
   padding: 0.5rem 1rem;
-  box-shadow: 0 1rem 1rem var(--color-shadow);
+  box-shadow: 0 0.1rem 0.1rem var(--color-shadow);
 }
