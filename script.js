@@ -20,6 +20,7 @@ const getData = async (country) => {
 };
 
 async function fetchByLocation(coords) {
+  renderSpinner();
   const { latitude, longitude } = coords;
   const response = await fetch(
     `${GEO_API}q=${latitude}+${longitude}&key=${GEOCODE_API_KEY}`
