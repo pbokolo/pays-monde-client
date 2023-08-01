@@ -27,6 +27,13 @@
   padding: 1rem 0;
   cursor: pointer;
   transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .material-icons {
+    color: var(--color-black);
+  }
 }
 
 .card__details p:hover {

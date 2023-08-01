@@ -34,12 +34,18 @@ const renderCountry = (data) => {
   </div>
   <div class="card__details">
     <p class="text text--title">${country.name.common}</p>
-    <p class="text text--body">${country.capital[0]}</p>
-    <p class="text text--body">${country.region}</p>
-    <p class="text text--body">${
+    <p class="text text--body"> <i class="material-icons">location_city</i> ${
+      country.capital[0]
+    }</p>
+    <p class="text text--body"><i class="material-icons">south_america</i>${
+      country.region
+    }</p>
+    <p class="text text--body"><i class="material-icons">attach_money</i>${
       cur ? `${name} ${symbol ? `(${symbol})` : ""}` : "No official"
     }</p>
-    <p class="text text--body">${formatCompactNumber(country.population)}</p>
+    <p class="text text--body"><i class="material-icons">diversity_3</i>${formatCompactNumber(
+      country.population
+    )}</p>
   </div>
 </div>`;
   section.innerHTML = element;
