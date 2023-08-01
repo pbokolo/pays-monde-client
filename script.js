@@ -1,8 +1,10 @@
 "use strict";
 const API = "https://restcountries.com/v3.1/name";
+const GEO_API = "https://api.opencagedata.com/geocode/v1/json?";
 const section = document.getElementById("section");
 const formSearch = document.getElementById("form-search");
 const queryTxt = document.getElementById("query-txt");
+const locationBtn = document.querySelector("#btn-loc");
 
 const getData = async (country) => {
   try {
@@ -15,6 +17,13 @@ const getData = async (country) => {
     alert(`Non trouvé: ${country}`);
   }
 };
+
+async function fetchByCode(code) {
+  const result = await axios.get(`${API}/alpha/${code}`);
+  if (!result) throw new Error(`Country ${code} not found`);
+  const [data] = result.data;
+  return data;
+}
 
 const renderCountry = (data) => {
   const [country] = data;
@@ -75,12 +84,33 @@ function formatCompactNumber(number) {
   }
 }
 
+async function fetchByLocation(coords) {
+  const { latitude, longitude } = coords;
+
+  console.log(latitude, longitude);
+
+  /* const result = await axios.get(
+    `${GEO_API}q=${latitude}+${longitude}&key=${GEOCODE_API_KEY}`
+  );
+  const { country_code } = result.data.results[0].components;
+  const country = await this.fetchByCode(country_code); */
+}
+
 const init = () => {
   formSearch.addEventListener("submit", (e) => {
     e.preventDefault();
     const query = queryTxt.value;
     getData(query);
     queryTxt.value = "";
+  });
+
+  locationBtn.addEventListener("click", (e) => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        fetchByLocation(position.coords);
+      },
+      (error) => console.log(error)
+    );
   });
 };
 
