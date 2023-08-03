@@ -5,8 +5,4 @@
   border-radius: 2rem;
   padding: 0.5rem 1rem;
   transition: all 0.2s;
-
-  &:focus {
-    scale: 1.1;
-  }
 }
