@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0.05rem 0.05rem var(--color-shadow);
 }
 
 .input--text {

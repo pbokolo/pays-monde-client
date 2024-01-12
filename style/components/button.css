@@ -1,9 +1,10 @@
 .btn {
   border: none;
   padding: 1rem 3rem;
-
   background-color: var(--color-primary);
   cursor: pointer;
+  display: inline-block;
+  box-shadow: 0 0.1rem 0.1rem var(--color-shadow);
 }
 
 .btn--location {
@@ -34,6 +35,20 @@
 
 .material-icons {
   color: var(--color-white);
+}
+
+.btn--menu {
+  background-color: var(--color-white-d--4);
+  text-transform: uppercase;
+  padding: 0.5rem 1.5rem;
+  border-radius: 1.5rem;
+
+  &:hover {
+    box-shadow: 0 0.25rem 0.25rem var(--color-shadow);
+  }
+  &:active {
+    box-shadow: 0 0.1rem 0.1rem var(--color-shadow);
+  }
 }
 
 @keyframes pulse {
